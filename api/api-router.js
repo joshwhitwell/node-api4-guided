@@ -7,7 +7,11 @@ const router = express.Router();
 router.use(express.json());
 
 router.get("/", (req, res) => {
-  res.status(200).json({ api: "up" });
+  res.status(200).json({ "api": "up" });
+});
+
+router.get("/tell-all", (req, res) => {
+  res.status(200).json({ "secret": process.env.SECRET });
 });
 
 router.get("/shouts", (req, res, next) => {
